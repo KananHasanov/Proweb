@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Green Campus Living Lab",
+    "url": "https://sdg.azmiu.edu.az/research/green-campus",
+    "summary": "Our Green Campus initiative tracks energy efficiency retrofits and student-led sustainability audits across AZMIU facilities.",
+    "hashtags": ["#GreenCampus", "#SustainableArchitecture"]
+  },
+  {
+    "title": "Urban Resilience Design Studio",
+    "url": "https://sdg.azmiu.edu.az/research/urban-resilience",
+    "summary": "Faculty and graduate researchers co-develop resilient urban planning models supporting SDG 11 across Azerbaijan's regions.",
+    "hashtags": ["#UrbanResilience", "#SDG11"]
+  },
+  {
+    "title": "Water-Sensitive Building Materials",
+    "url": "https://sdg.azmiu.edu.az/research/water-materials",
+    "summary": "Materials science teams innovate low-impact construction materials that safeguard water resources and advance SDG 6.",
+    "hashtags": ["#SDG6", "#EcoMaterials"]
+  }
+]
