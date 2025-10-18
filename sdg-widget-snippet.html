@@ -1,0 +1,261 @@
+<!--
+  Simple SDG news widget snippet
+  Copy everything in this file into your page where you want the widget to appear.
+  Update the sdgNewsData arrays in the script with your latest headlines.
+-->
+<div class="sdg-widget" data-widget="sdg-news">
+  <div class="sdg-widget__header">
+    <h2>Daily SDG Highlights</h2>
+    <p class="sdg-widget__intro">Stay up to date with global Sustainable Development Goals news and the latest achievements from AzMIU.</p>
+  </div>
+  <div class="sdg-widget__streams">
+    <section class="sdg-stream" aria-labelledby="sdg-global-heading">
+      <h3 id="sdg-global-heading">Global SDG News</h3>
+      <div class="sdg-stream__list" data-stream="global"></div>
+    </section>
+    <section class="sdg-stream" aria-labelledby="sdg-azmiu-heading">
+      <h3 id="sdg-azmiu-heading">AzMIU Spotlight</h3>
+      <div class="sdg-stream__list" data-stream="azmiu"></div>
+    </section>
+  </div>
+</div>
+
+<style>
+  .sdg-widget {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    border: 1px solid #d9e2ec;
+    border-radius: 16px;
+    padding: 24px;
+    background: #ffffff;
+    color: #0f2742;
+    max-width: 960px;
+    margin: 0 auto;
+    box-shadow: 0 12px 32px -18px rgba(15, 39, 66, 0.4);
+  }
+
+  .sdg-widget__header h2 {
+    margin: 0 0 8px;
+    font-size: 1.75rem;
+    color: #0f5c8a;
+  }
+
+  .sdg-widget__intro {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #37556d;
+  }
+
+  .sdg-widget__streams {
+    display: grid;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .sdg-widget__streams {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .sdg-stream {
+    background: linear-gradient(135deg, rgba(15, 92, 138, 0.08), rgba(55, 85, 109, 0.02));
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .sdg-stream h3 {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    color: #0f5c8a;
+  }
+
+  .sdg-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(15, 92, 138, 0.1);
+    box-shadow: 0 6px 20px -16px rgba(15, 39, 66, 0.6);
+  }
+
+  .sdg-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .sdg-card__title {
+    font-size: 1rem;
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+
+  .sdg-card__meta {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    color: #5a7690;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+
+  .sdg-card__summary {
+    margin: 0 0 10px;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: #1a3850;
+  }
+
+  .sdg-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sdg-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(15, 92, 138, 0.12);
+    color: #0f5c8a;
+    text-decoration: none;
+  }
+
+  .sdg-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #0f5c8a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .sdg-card__link svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+</style>
+
+<script>
+  const sdgNewsData = {
+    globalNews: [
+      {
+        title: "UN releases 2024 SDG progress report",
+        summary: "Key takeaways highlight the need for accelerated climate action and equitable infrastructure investments.",
+        url: "https://www.un.org/sustainabledevelopment/blog/2024/04/sdg-progress/",
+        published: "2024-04-19",
+        source: "United Nations",
+        hashtags: ["#SDGs", "#GlobalGoals", "#ClimateAction"]
+      },
+      {
+        title: "European universities form SDG innovation alliance",
+        summary: "A coalition of 60 institutions launches joint labs to tackle energy, housing, and biodiversity challenges.",
+        url: "https://example.edu/news/sdg-innovation-alliance",
+        published: "2024-04-17",
+        source: "Times Higher Education",
+        hashtags: ["#Innovation", "#SDG17"]
+      }
+    ],
+    azmiuNews: [
+      {
+        title: "AzMIU researchers earn patent for low-carbon concrete",
+        summary: "The Faculty of Construction Materials introduced a novel mix that cuts emissions by 28% while improving durability.",
+        url: "https://sdg.azmiu.edu.az/patents/low-carbon-concrete",
+        published: "2024-04-18",
+        source: "AzMIU Research",
+        hashtags: ["#AzMIU", "#SDG9", "#SustainableCities"]
+      },
+      {
+        title: "Architecture students win SDG design challenge",
+        summary: "Team Green Horizon's coastal resilience plan secured first place in the Caspian Regional SDG Challenge.",
+        url: "https://sdg.azmiu.edu.az/news/green-horizon",
+        published: "2024-04-16",
+        source: "Campus News",
+        hashtags: ["#AzMIU", "#SDG11", "#Resilience"]
+      }
+    ]
+  };
+
+  (function renderSDGWidget() {
+    const widget = document.querySelector('[data-widget="sdg-news"]');
+    if (!widget) return;
+
+    const formatDate = (isoDate) => {
+      if (!isoDate) return "";
+      const date = new Date(isoDate);
+      return new Intl.DateTimeFormat(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      }).format(date);
+    };
+
+    const createCard = (item) => {
+      const card = document.createElement('article');
+      card.className = 'sdg-card';
+
+      const title = document.createElement('h4');
+      title.className = 'sdg-card__title';
+      title.textContent = item.title;
+      card.appendChild(title);
+
+      const meta = document.createElement('div');
+      meta.className = 'sdg-card__meta';
+      const parts = [item.source, formatDate(item.published)].filter(Boolean);
+      meta.textContent = parts.join(' • ');
+      card.appendChild(meta);
+
+      if (item.summary) {
+        const summary = document.createElement('p');
+        summary.className = 'sdg-card__summary';
+        summary.textContent = item.summary;
+        card.appendChild(summary);
+      }
+
+      if (item.hashtags && item.hashtags.length) {
+        const tagList = document.createElement('div');
+        tagList.className = 'sdg-card__tags';
+        item.hashtags.forEach((tag) => {
+          const badge = document.createElement('span');
+          badge.className = 'sdg-tag';
+          badge.textContent = tag;
+          tagList.appendChild(badge);
+        });
+        card.appendChild(tagList);
+      }
+
+      if (item.url) {
+        const link = document.createElement('a');
+        link.className = 'sdg-card__link';
+        link.href = item.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.innerHTML = `Read more <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12.17l-4.58 4.59L14 18l7-7-7-7-1.41 1.41L17.17 11H5z"/></svg>`;
+        card.appendChild(link);
+      }
+
+      return card;
+    };
+
+    const populateStream = (key, fallbackMessage) => {
+      const container = widget.querySelector(`[data-stream="${key}"]`);
+      if (!container) return;
+
+      const items = sdgNewsData[key] || [];
+      if (!items.length) {
+        container.innerHTML = `<p>${fallbackMessage}</p>`;
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      items.forEach((item) => fragment.appendChild(createCard(item)));
+      container.innerHTML = '';
+      container.appendChild(fragment);
+    };
+
+    populateStream('globalNews', 'No global stories available today. Check back soon.');
+    populateStream('azmiuNews', 'No AzMIU updates are available right now.');
+  })();
+</script>
