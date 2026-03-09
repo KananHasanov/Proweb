@@ -1,0 +1,27 @@
+```text
+app/
+  main.py
+  core/
+    config.py
+  db/
+    schema.sql
+  schemas/
+    domain.py
+  services/
+    market_data_service.py
+    event_intelligence_service.py
+    token_classification_service.py
+    technical_analysis_engine.py
+    signal_decision_engine.py
+    risk_planning_service.py
+    telegram_signal_service.py
+docs/
+  system_design.md
+  signal_logic_pseudocode.md
+  event_monitoring_pseudocode.md
+  telegram_flow.md
+  folder_structure.md
+  sample_payloads.md
+tests/
+  test_signal_decision_engine.py
+```
